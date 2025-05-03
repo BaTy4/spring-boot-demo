@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${course.name} + ' Course'">Course</title>
+<!--    <link rel="stylesheet" href="/css/styles.css">-->
+</head>
+<body>
+<div class="header">
+    <div th:if="${course.imageUrl}" class="course-image">
+        <img th:src="${course.imageUrl}" alt="Course image" style="max-width: 200px;">
+    </div>
+    <h1 th:text="${course.name}"></h1>
+    <p class="course-description" th:text="${course.description}"></p>
+</div>
+
+<div class="navigation">
+    <a th:href="@{/dashboard}">Back to Main Dashboard</a>
+</div>
+
+<div class="content">
+    <h2>Course Materials</h2>
+    <div th:if="${course.materials.isEmpty()}">
+        <p>No materials available yet.</p>
+    </div>
+    <ul th:unless="${course.materials.isEmpty()}">
+        <li th:each="material : ${course.materials}">
+            <a th:href="${material}" th:text="${material}"></a>
+        </li>
+    </ul>
+
+    <h2>Enrolled Students</h2>
+    <div th:if="${course.enrolledUsers.isEmpty()}">
+        <p>No students enrolled yet.</p>
+    </div>
+    <ul th:unless="${course.enrolledUsers.isEmpty()}">
+        <li th:each="user : ${course.enrolledUsers}"
+            th:text="${user.username}"></li>
+    </ul>
+</div>
+</body>
+</html>

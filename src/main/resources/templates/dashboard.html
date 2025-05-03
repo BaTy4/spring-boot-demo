@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <!-- Use Thymeleaf for CSS reference -->
+    <link rel="stylesheet" th:href="@{/css/student.css}">
+    <title>Student dashboard</title>
+</head>
+
+<body>
+
+<div class="left-section">
+    <div class="logo">
+        <!-- Updated image reference -->
+        <img th:src="@{/images/gasyrlab.png}" alt="GasyrLab Logo">
+        <a th:href="@{/dashboard}">GasyrLab</a>
+    </div>
+
+    <div class="sidebar">
+        <a th:href="@{/dashboard}">
+            <div class="item active">
+                <i class="ri-home-4-line"><span class="material-icons-sharp">home</span></i>
+                <h3>Главная</h3>
+            </div>
+        </a>
+
+        <a th:href="@{/dashboard/s_notifications}">
+            <div class="item">
+                <i class="ri-chat-1-line">
+                    <span class="material-icons-sharp">notifications</span>
+                </i>
+                <h3>Уведомления</h3>
+            </div>
+        </a>
+
+        <a th:href="@{/dashboard/s_vacancies}">
+            <div class="item">
+                <i class="ri-movie-2-line">
+                    <span class="material-icons-sharp">work</span>
+                </i>
+                <h3>Вакансий</h3>
+            </div>
+        </a>
+
+        <a th:href="@{/dashboard/s_messages}">
+            <div class="item">
+                <i class="ri-film-line">
+                    <span class="material-icons-sharp">email</span>
+                </i>
+                <h3>Сообщения</h3>
+            </div>
+        </a>
+
+        <a th:href="@{/dashboard/resume}">
+            <div class="item">
+                <i class="ri-user-6-line">
+                    <span class="material-icons-sharp">fact_check</span>
+                </i>
+                <h3>Мои Резюме</h3>
+            </div>
+        </a>
+
+        <div class="item">
+            <i class="ri-settings-3-line">
+                <span class="material-icons-sharp">settings</span>
+            </i>
+            <h3>Настройки</h3>
+        </div>
+    </div>
+
+    <!-- Spring Security logout form -->
+    <form th:action="@{/logout}" method="post">
+        <div class="sign-out" onclick="this.parentNode.submit()">
+            <i class="ri-logout-box-r-line">
+                <span class="material-icons-sharp">logout</span>
+            </i>
+            <h3>Выход</h3>
+        </div>
+    </form>
+</div>
+
+<div class="main">
+    <div class="banner">
+        <div class="share">
+            <i class="ri-share-forward-line"></i>
+            <i class="ri-more-fill"></i>
+        </div>
+        <div class="video-info">
+            <div class="item">
+                <h3>Тестировщик</h3>
+            </div>
+            <div class="item">
+                <i class="ri-thumb-up-line"></i>
+            </div>
+            <div class="item">
+                <i class="ri-eye-line"></i>
+                <h3>2024</h3>
+            </div>
+            <div class="item">
+                <i class="ri-calendar-line"></i>
+                <h3>10-Ноябрь</h3>
+            </div>
+            <div class="item">
+                <i class="ri-bookmark-line"></i>
+            </div>
+        </div>
+        <img th:src="@{/images/testof.png}" alt="Test Banner">
+    </div>
+
+    <div class="separator">
+        <h3>Discover World</h3>
+        <div class="categories">
+            <a class="active">Все</a>
+            <a>Python</a>
+            <a>JavaScript</a>
+            <a>C#</a>
+            <a>Java</a>
+            <a>Pascal</a>
+            <a>C++</a>
+            <a>CSS</a>
+            <a>HTML</a>
+        </div>
+    </div>
+
+    <div class="video-items">
+
+        <div class="item">
+            <div class="like">
+                <i class="ri-heart-3-fill"></i>
+            </div>
+            <img th:src="@{/images/pythonn.png}" alt="Python">
+            <div class="details">
+                <h3>Python</h3>
+                <div class="info">
+                    <div class="location">
+                        <i class="ri-map-pin-line"></i>
+                        <h5>Гибкий, Мощный и Элегантный</h5>
+                    </div>
+                    <div class="rate">
+                        <i class="ri-star-fill"></i>
+                        <h5>5.0</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="item">
+            <div class="like">
+                <i class="ri-heart-3-fill"></i>
+            </div>
+            <img th:src="@{/images/js.png}" alt="Python">
+            <div class="details">
+                <h3>JavaScript</h3>
+                <div class="info">
+                    <div class="location">
+                        <i class="ri-map-pin-line"></i>
+                        <h5>Универсальность и Мощь</h5>
+                    </div>
+                    <div class="rate">
+                        <i class="ri-star-fill"></i>
+                        <h5>5.0</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="like">
+                <i class="ri-heart-3-fill"></i>
+            </div>
+            <img th:src="@{/images/csharp.png}" alt="Python">
+            <div class="details">
+                <h3>C#</h3>
+                <div class="info">
+                    <div class="location">
+                        <i class="ri-map-pin-line"></i>
+                        <h5>Продвинутый и Интуитивно-понятный</h5>
+                    </div>
+                    <div class="rate">
+                        <i class="ri-star-fill"></i>
+                        <h5>5.0</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    </div>
+</div>
+
+<div class="right-section">
+    <div class="profile">
+        <div class="info">
+            <i class="ri-user-3-line"></i>
+            <!-- Display authenticated user's name -->
+            <h5>Welcome <span th:text="${username}">User</span>!</h5>
+        </div>
+        <div class="user">
+            <img th:src="@{/images/user.png}" alt="User Profile">
+        </div>
+    </div>
+
+    <h3>Сертификаты</h3>
+    <div class="player">
+        <div class="content">
+            <img th:src="@{/images/gasyrlab.png}" alt="Certificate">
+            <div class="info">
+                <h5>Получение Сертификата от GasyrLab</h5>
+                <div class="rate">
+                    <i class="ri-star-fill"></i>
+                    <h5>5.0</h5>
+                </div>
+            </div>
+            <div class="desc">
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero...</p>
+            </div>
+        </div>
+        <i class="ri-pause-large-line"></i>
+    </div>
+
+    <h3>Наши Ментора</h3>
+    <div class="weekly">
+        <div class="item">
+            <div class="content">
+                <img th:src="@{/images/Akhmer.png}" alt="Akhmer agai">
+                <div class="info">
+                    <h4>Yerasyl Akhmer</h4>
+                    <div class="view">
+                        <i class="ri-eye-fill"></i>
+                        <h5>Mentor (best teacher)</h5>
+                    </div>
+                </div>
+            </div>
+            <i class="ri-heart-3-fill"></i>
+        </div>
+        <!-- Repeat for other mentors with updated image references -->
+    </div>
+</div>
+
+<!-- Use Thymeleaf for JS reference -->
+</body>
+</html>
