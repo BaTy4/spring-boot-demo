@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+
+  <th:block layout:fragment="styles">
+    <link rel="stylesheet" th:href="@{/css/student.css}">
+  </th:block>
+
+  <title layout:title-pattern="$TITLE - MySite">Base</title></head>
+
+
+<body>
+<div class="left-section">
+  <div class="logo">
+    <!-- Updated image reference -->
+    <img th:src="@{/images/gasyrlab.png}" alt="GasyrLab Logo">
+    <a th:href="@{/dashboard}">GasyrLab</a>
+  </div>
+
+  <div class="sidebar">
+    <a th:href="@{/dashboard}">
+      <div th:class="'item' + (${requestURI == '/dashboard'} ? ' active' : '')">
+        <i class="ri-home-4-line"><span class="material-icons-sharp">home</span></i>
+        <h3>Главная</h3>
+      </div>
+    </a>
+
+    <a th:href="@{/dashboard/s_notifications}">
+      <div th:class="'item' + (${requestURI == '/dashboard/s_notifications'} ? ' active' : '')">
+        <i class="ri-chat-1-line">
+          <span class="material-icons-sharp">notifications</span>
+        </i>
+        <h3>Уведомления</h3>
+      </div>
+    </a>
+
+    <a th:href="@{/dashboard/courses}">
+      <div th:class="'item' + (${requestURI == '/dashboard/courses'} ? ' active' : '')">
+        <i class="ri-movie-2-line">
+          <span class="material-icons-sharp">view_list</span>
+        </i>
+        <h3>Курсы</h3>
+      </div>
+    </a>
+
+    <a th:href="@{/dashboard/courses/new}">
+      <div th:class="'item' + (${requestURI == '/dashboard/courses/new'} ? ' active' : '')">
+        <i class="ri-film-line">
+          <span class="material-icons-sharp">add</span>
+        </i>
+        <h3>Добавить Курс</h3>
+      </div>
+    </a>
+
+<!--    <a th:href="@{/dashboard/resume}">-->
+<!--      <div class="item">-->
+<!--        <i class="ri-user-6-line">-->
+<!--          <span class="material-icons-sharp">fact_check</span>-->
+<!--        </i>-->
+<!--        <h3>Мои Резюме</h3>-->
+<!--      </div>-->
+<!--    </a>-->
+
+    <div class="item">
+      <i class="ri-settings-3-line">
+        <span class="material-icons-sharp">settings</span>
+      </i>
+      <h3>Настройки</h3>
+    </div>
+  </div>
+
+
+
+  <form th:action="@{/logout}" method="post">
+    <div class="sign-out" onclick="this.parentNode.submit()">
+      <i class="ri-logout-box-r-line">
+        <span class="material-icons-sharp">logout</span>
+      </i>
+      <h3>Выход</h3>
+    </div>
+  </form>
+</div>
+
+
+
+
+<main layout:fragment="content">
+
+<!--The dynamic content will be here-->
+
+</main>
+
+<main layout:fragment="right">
+
+</main>
+
+</body>
+</html>

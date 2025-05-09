@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}" lang="en">
+<head>
+    <th:block layout:fragment="styles">
+        <link rel="stylesheet" th:href="@{/css/student.css}">
+<!--        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">-->
+    </th:block>
+    <title>Student dashboard</title>
+</head>
+
+<body>
+
+<section layout:fragment="content">
+    <div class="main">
+        <div class="banner">
+            <div class="separator">
+                <h3>Discover World</h3>
+                <div class="categories">
+                    <a class="active">Все</a>
+                    <a>Python</a>
+                    <a>JavaScript</a>
+                    <a>C#</a>
+                    <a>Java</a>
+                    <a>Pascal</a>
+                    <a>C++</a>
+                    <a>CSS</a>
+                    <a>HTML</a>
+                </div>
+            </div>
+            <div class="video-items">
+                <div class="item">
+                <li th:each="course : ${courses}">
+                    <a th:href="@{/dashboard/courses/{id}(id=${course.id})}" th:text="${course.name}"></a>
+                    <i th:text="${course.language}"></i><br>
+                    <hr>
+                </li>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section layout:fragment = "right">
+    <div class="right-section">
+        <div class="weekly">
+            <div class="item">
+                <div class="content">
+                    <a href="/dashboard/courses/new">Создать Курс</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

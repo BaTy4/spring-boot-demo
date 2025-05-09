@@ -1,86 +1,17 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
-    <!-- Use Thymeleaf for CSS reference -->
-    <link rel="stylesheet" th:href="@{/css/student.css}">
+    <th:block layout:fragment="styles">
+        <link rel="stylesheet" th:href="@{/css/student.css}">
+    </th:block>
     <title>Student dashboard</title>
 </head>
 
 <body>
 
-<div class="left-section">
-    <div class="logo">
-        <!-- Updated image reference -->
-        <img th:src="@{/images/gasyrlab.png}" alt="GasyrLab Logo">
-        <a th:href="@{/dashboard}">GasyrLab</a>
-    </div>
-
-    <div class="sidebar">
-        <a th:href="@{/dashboard}">
-            <div class="item active">
-                <i class="ri-home-4-line"><span class="material-icons-sharp">home</span></i>
-                <h3>Главная</h3>
-            </div>
-        </a>
-
-        <a th:href="@{/dashboard/s_notifications}">
-            <div class="item">
-                <i class="ri-chat-1-line">
-                    <span class="material-icons-sharp">notifications</span>
-                </i>
-                <h3>Уведомления</h3>
-            </div>
-        </a>
-
-        <a th:href="@{/dashboard/s_vacancies}">
-            <div class="item">
-                <i class="ri-movie-2-line">
-                    <span class="material-icons-sharp">work</span>
-                </i>
-                <h3>Вакансий</h3>
-            </div>
-        </a>
-
-        <a th:href="@{/dashboard/s_messages}">
-            <div class="item">
-                <i class="ri-film-line">
-                    <span class="material-icons-sharp">email</span>
-                </i>
-                <h3>Сообщения</h3>
-            </div>
-        </a>
-
-        <a th:href="@{/dashboard/resume}">
-            <div class="item">
-                <i class="ri-user-6-line">
-                    <span class="material-icons-sharp">fact_check</span>
-                </i>
-                <h3>Мои Резюме</h3>
-            </div>
-        </a>
-
-        <div class="item">
-            <i class="ri-settings-3-line">
-                <span class="material-icons-sharp">settings</span>
-            </i>
-            <h3>Настройки</h3>
-        </div>
-    </div>
-
-    <!-- Spring Security logout form -->
-    <form th:action="@{/logout}" method="post">
-        <div class="sign-out" onclick="this.parentNode.submit()">
-            <i class="ri-logout-box-r-line">
-                <span class="material-icons-sharp">logout</span>
-            </i>
-            <h3>Выход</h3>
-        </div>
-    </form>
-</div>
-
+<section layout:fragment="content">
 <div class="main">
     <div class="banner">
         <div class="share">
@@ -186,11 +117,11 @@
             </div>
         </div>
     </div>
-
-
-    </div>
 </div>
 
+</section>
+
+<section layout:fragment = "right">
 <div class="right-section">
     <div class="profile">
         <div class="info">
@@ -236,10 +167,10 @@
             </div>
             <i class="ri-heart-3-fill"></i>
         </div>
-        <!-- Repeat for other mentors with updated image references -->
     </div>
 </div>
+</section>
 
-<!-- Use Thymeleaf for JS reference -->
+
 </body>
 </html>
